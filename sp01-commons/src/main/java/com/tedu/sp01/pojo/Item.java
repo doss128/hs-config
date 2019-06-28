@@ -11,5 +11,5 @@ public class Item {
 	private Integer id;
 	private String name;
 	private Integer number;
-	//277777777777
+	//277
 }
