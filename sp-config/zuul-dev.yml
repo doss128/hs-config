@@ -2,10 +2,10 @@ spring:
   application:
     name: zuul
   rabbitmq:
-    host: 192.168.60.130
+    host: 127.0.0.1
     port: 5672
-    username: admin
-    password: admin
+    username: guest
+    password: guest
     
 server:
   port: 3001
@@ -13,13 +13,11 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+      defaultZone: http://eureka1:2001/eureka
     
 zuul:
-  retryable: true
+  routes:
+      admin-service: /admin-service/**
 
 ribbon:
   ConnectTimeout: 1000
